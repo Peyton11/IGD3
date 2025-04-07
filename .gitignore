@@ -1,0 +1,14 @@
+# Ignore the following Unity-specific files
+Library/
+Temp/
+Obj/
+.vs/
+.idea/
+.vscode/
+Build/
+Builds/
+
+# User-specific files
+*.userprefs
+*.user
+
