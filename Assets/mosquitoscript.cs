@@ -6,7 +6,7 @@ public class MosquitoManager : MonoBehaviour
 {
     public GameObject mosquitoPrefab;
     public Transform diver;
-    public int numberOfMosquitoes = 20;
+    public int numberOfMosquitoes = 100;
     public float spawnRadius = 5f;
 
     void Start()
