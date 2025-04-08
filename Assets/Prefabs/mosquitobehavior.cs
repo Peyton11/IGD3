@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MosquitoBehavior : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class MosquitoBehavior : MonoBehaviour
 
     private Vector3 offset;
 
+    public Text mosquitovalues;
+
     void Start()
     {
         // Create an initial offset for each mosquito's position within the buzzing range
@@ -22,6 +25,26 @@ public class MosquitoBehavior : MonoBehaviour
     {
         if (diver == null)
             return;
+        
+        // Keybinds to change values    
+        if (Input.GetKeyDown(KeyCode.Alpha1)) followSpeed += 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha2)) followSpeed -= 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha3)) buzzingRange += 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha4)) buzzingRange -= 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha5)) buzzingSpeed += 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha6)) buzzingSpeed -= 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha7)) separationDistance += 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha8)) separationDistance -= 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha9)) separationStrength += 0.1f;
+        if (Input.GetKeyDown(KeyCode.Alpha0)) separationStrength -= 0.1f;
+        
+        // Display mosquito values
+        mosquitovalues.text = "Mosquito values:\n" +
+                              "Follow speed = " + followSpeed.ToString("F1") + "\n" +
+                              "Buzzing range = " + buzzingRange.ToString("F1") + "\n" +
+                              "Buzzing speed = " + buzzingSpeed.ToString("F1") + "\n" +
+                              "Separation distance = " + separationDistance.ToString("F1") + "\n" +
+                              "Separation strength = " + separationStrength.ToString("F1");
 
         // Calculate target position around the diver with the offset
         Vector3 targetPosition = diver.position + offset;

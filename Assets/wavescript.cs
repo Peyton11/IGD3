@@ -42,8 +42,13 @@ public class WaveScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N)) speed -= 0.1f;
         
         // Display wave values
-        values.text = "Amplitude = " + amplitude + "\nWavelength = " + wavelength + "\nSpeed = " + speed + "\nDecay Speed = " + decaySpeed + "\nTime = " + Time.time;
-
+        values.text = "Wave values:\n" +
+                      "Amplitude = " + amplitude.ToString("F1") + "\n" +
+                      "Wavelength = " + wavelength.ToString("F1") + "\n" +
+                      "Speed = " + speed.ToString("F1") + "\n" +
+                      "Decay Speed = " + decaySpeed.ToString("F1") + "\n" +
+                      "Time = " + Time.time.ToString("F1");
+        
         if (!isWaveActive) return;
 
         float t = Time.time - timeOfImpact;
